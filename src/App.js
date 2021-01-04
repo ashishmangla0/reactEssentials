@@ -1,5 +1,5 @@
 import './App.css';
-
+import resturent from './restrurent.jpg';
 const dishes  = [
   "Macaroni and Cheese",
   "salmon",
@@ -25,6 +25,7 @@ function Main (props) {
       <p>
         We serve the most {props.adjective} food around.
       </p>
+      <img src={resturent} alt="rest" height={200}/>
       <ul style={{textAlign:"left"}}>
         {props.dishes.map((dish) => (<li key={dish.id}>{dish.title}</li>))}
       </ul>
