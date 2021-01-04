@@ -1,5 +1,10 @@
 import './App.css';
 
+const dishes  = [
+  "Macaroni and Cheese",
+  "salmon",
+  "Tofu with Vegetables"
+]
 
 function Header (props) {
 return (
@@ -14,6 +19,9 @@ function Main (props) {
       <p>
         We serve the most {props.adjective} food around.
       </p>
+      <ul style={{textAlign:"left"}}>
+        {props.dishes.map((dish) => (<li>{dish}</li>))}
+      </ul>
     </section>
   )
 }
@@ -28,11 +36,13 @@ Copyright {props.year}
   )
 }
 
+
+
 function App() {
   return (
     <div className="App">
     <Header name="Ashish"/>
-    <Main adjective="amazing"/>
+    <Main adjective="amazing" dishes={dishes}/>
     <Footer year = {new Date().getFullYear()} />
     </div>
   );
