@@ -4,6 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// const [mostImportant,secondImportant] = ["boots","tent","headlamp"];
+// console.log(mostImportant);
+// console.log(secondImportant);
+
+ const [,,light] = ["boots","tent","headlamp"];
+ console.log(light);
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App authorized ={true} />
