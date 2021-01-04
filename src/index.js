@@ -4,9 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+function AppTwo(){
+    return(
+        <h1>this is second app</h1>
+    )
+}
+
 ReactDOM.render(
   <React.StrictMode>
+  <>
     <App />
+    <AppTwo/>
+    </>
   </React.StrictMode>,
   document.getElementById('root')
 );
