@@ -8,13 +8,13 @@ import reportWebVitals from './reportWebVitals';
 // console.log(mostImportant);
 // console.log(secondImportant);
 
- const [,,light] = ["boots","tent","headlamp"];
- console.log(light);
+//  const [,,light] = ["boots","tent","headlamp"];
+//  console.log(light);
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App authorized ={true} />
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
