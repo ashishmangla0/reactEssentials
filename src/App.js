@@ -3,16 +3,29 @@ import {useState,useEffect} from "react";
 
 function App() {
 
-  // useEfffect
-  const [checked,setChecked] = useState(false);
+  // useEfffect and updating
+  const [val,SetVal] = useState("");
+  const [val2,SetVal2] = useState("");
+
 useEffect(() => {
-  alert(`checked: ${checked.toString()}`)
-})
+  console.log(val);
+},[val]);
+
+useEffect(() => {
+  console.log(val2);
+},[val,val2])
 
  return(
     <>
-    <input type="checkbox" value={checked} onChange={() => setChecked(!checked)}/>
-    {checked ? "checked": "not checked"}
+    <label>
+Favorite Phrase :
+<input value={val} onChange={(e) => SetVal(e.target.value)} />
+    </label>
+    <label>
+Favorite Phrase :
+<input value={val2} onChange={(e) => SetVal2(e.target.value)} />
+    </label>
+
 
     </>
   )
