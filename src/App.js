@@ -2,20 +2,38 @@ import './App.css';
 import {useState} from "react";
 
 function App() {
-  const [emotion,setEmotion] = useState("happy");
-  console.log(emotion); //first one is  state and another one is function
-  return(
+
+  // multiple states
+  const [year,setYear] = useState(2050);
+  const [manager,setManager] = useState("Ashish");
+  const [status,setStatus] = useState("open");
+ //first one is  state and another one is function
+  const handleManager = () => {
+          setManager("surbhi")
+  }
+ return(
     <>
-      <h1> current emotion is {emotion}</h1>
-      <button onClick={()=>setEmotion('Happy')}>
-        happy
+    <div>
+      <h1> Manager on duty: {manager} </h1>
+      <button onClick={()=>handleManager()}>
+        change manager
       </button>
-      <button onClick={()=>setEmotion('sad')}>
-        sad
-      </button>
-      <button onClick={()=>setEmotion('Enthusiastic')}>
-        Enthusiastic
-      </button>
+    </div>
+    <div>
+    <h2> status: {status} </h2>
+    <button onClick={()=> setStatus("open")}>
+      open
+    </button>
+    <button onClick={()=> setStatus("back in 5")}>
+      Break
+    </button>
+    <button onClick={()=> setStatus("closed")}>closed</button>
+    </div>
+    <div>
+      {year}
+      <button onClick={()=> setYear(year + 1)}>add year</button>
+    </div>
+
     </>
   )
 }
