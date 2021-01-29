@@ -3,28 +3,38 @@ import {useState,useEffect} from "react";
 
 function App() {
 
-  // useEfffect and updating
-  const [val,SetVal] = useState("");
-  const [val2,SetVal2] = useState("");
+  // fetch data usoing useEfffect
 
-useEffect(() => {
-  console.log(val);
-},[val]);
+const GithubUser = ({login}) =>{
 
-useEffect(() => {
-  console.log(val2);
-},[val,val2])
+const [data,setDate] = useState(null);
+useEffect(()=>{
+  fetch(`https://api.github.com/users/${login}`)
+  .then(res => res.json())
+  .then(setDate)
+  .catch(console.error)
+},[]);
+
+if(data){
+  return <div>
+  {JSON.stringify(data)}
+<h1>
+  {data.login}
+</h1>
+<img src={data.avatar_url} />
+  </div>
+}
+return null
+
+}
+
+
 
  return(
     <>
-    <label>
-Favorite Phrase :
-<input value={val} onChange={(e) => SetVal(e.target.value)} />
-    </label>
-    <label>
-Favorite Phrase :
-<input value={val2} onChange={(e) => SetVal2(e.target.value)} />
-    </label>
+
+    <GithubUser login="ashishmangla0"/>
+
 
 
     </>
