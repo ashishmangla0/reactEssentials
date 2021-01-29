@@ -1,25 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState,useEffect} from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  // fetch data usoing useEfffect
+
+const GithubUser = ({login}) =>{
+
+const [data,setDate] = useState(null);
+useEffect(()=>{
+  fetch(`https://api.github.com/users/${login}`)
+  .then(res => res.json())
+  .then(setDate)
+  .catch(console.error)
+},[]);
+
+if(data){
+  return <div>
+  {JSON.stringify(data)}
+<h1>
+  {data.login}
+</h1>
+<img src={data.avatar_url} />
+  </div>
+}
+return null
+
+}
+
+
+
+ return(
+    <>
+
+    <GithubUser login="ashishmangla0"/>
+
+
+
+    </>
+  )
 }
 
 export default App;
